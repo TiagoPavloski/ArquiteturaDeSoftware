@@ -2,6 +2,7 @@ package br.edu.norvana.Facade;
 
 import java.util.List;
 
+import br.edu.norvana.Dao.EmpresaDao;
 import br.edu.norvana.Dao.ProdutoDao;
 import br.edu.norvana.business.BusinessEmpresa;
 import br.edu.norvana.business.BusinessException;
@@ -28,6 +29,11 @@ public class Facade {
 	public List<Produto> listarProduto(){
 		
 		return new ProdutoDao().listar();	
+	}
+	
+	public List<Empresa> listarEmpresa(){
+		
+		return new EmpresaDao().listar();	
 	}
 	
 	

@@ -6,12 +6,8 @@ import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-
-import br.edu.norvana.Dao.InterfaceDao;
-import br.edu.norvana.Dao.ProdutoDao;
 import br.edu.norvana.Facade.Facade;
 import br.edu.norvana.business.BusinessException;
-import br.edu.norvana.business.BusinessProduto;
 import br.edu.norvana.entity.Produto;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
