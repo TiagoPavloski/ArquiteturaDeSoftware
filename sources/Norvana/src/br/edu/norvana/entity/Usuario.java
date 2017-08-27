@@ -14,7 +14,7 @@ public class Usuario {
 	private String login;
 	private String senha;
 	private String nome;
-	private Integer empresa;
+	private String empresa;
 	public Long getId() {
 		return id;
 	}
@@ -39,10 +39,10 @@ public class Usuario {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Integer getEmpresa() {
+	public String getEmpresa() {
 		return empresa;
 	}
-	public void setEmpresa(Integer empresa) {
+	public void setEmpresa(String empresa) {
 		this.empresa = empresa;
 	}
 	
