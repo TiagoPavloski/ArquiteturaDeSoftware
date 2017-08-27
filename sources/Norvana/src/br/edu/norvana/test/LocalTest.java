@@ -8,9 +8,9 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import br.edu.norvana.business.BusinessException;
-import br.edu.norvana.business.BusinessLocal;
-import br.edu.norvana.Dao.LocalDao;
+import br.edu.norvana.Facade.Facade;
 import br.edu.norvana.entity.Local;
+
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class LocalTest {
@@ -23,24 +23,22 @@ public class LocalTest {
 		l.setCodigo("L0001");
 		l.setDescricao("Local teste 01");
 		
-		BusinessLocal localBusiness = new BusinessLocal();
+		Facade facade = new Facade();
 		
-		try{
-			localBusiness.salvar(l);
-		}catch (BusinessException e){
+		try {
+			facade.salvar(l);
+		} catch (BusinessException e) {
 			e.printStackTrace();
 		}
 		
 		Assert.assertEquals(true,l.getId() != null);
-		
 	}
 	
 	@Test
 	public void listarLocal(){
-		List<Local> locais = new LocalDao().listar();
+		List<Local> locais = new Facade().listarLocal();
 		
 		Assert.assertEquals(true,locais.size() > 0);
 		
 	}
-
 }

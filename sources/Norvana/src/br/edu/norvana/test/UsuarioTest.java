@@ -7,9 +7,8 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import br.edu.norvana.Dao.UsuarioDao;
+import br.edu.norvana.Facade.Facade;
 import br.edu.norvana.business.BusinessException;
-import br.edu.norvana.business.BusinessUsuario;
 import br.edu.norvana.entity.Usuario;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -23,21 +22,20 @@ public class UsuarioTest {
 		u.setNome("Dioggines Silva");
 		u.setEmpresa("E0001");
 		
-		BusinessUsuario usuarioBusiness = new BusinessUsuario();
+	Facade facade = new Facade();
 		
-		try{
-			usuarioBusiness.salvar(u);
-		}catch (BusinessException e){
+		try {
+			facade.salvar(u);
+		} catch (BusinessException e) {
 			e.printStackTrace();
 		}
 		
 		Assert.assertEquals(true,u.getId() != null);
-		
 	}
 	
 	@Test
 	public void listarUsuario(){
-		List<Usuario> usuarios = new UsuarioDao().listar();
+		List<Usuario> usuarios = new Facade().listarUsuario();
 		
 		Assert.assertEquals(true,usuarios.size() > 0);
 		
