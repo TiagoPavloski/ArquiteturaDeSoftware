@@ -1,0 +1,45 @@
+<div class="container">
+	<h1>Cadastro de Local</h1>
+	<form>
+		<div class="form-group">
+			<label for="codigo">Código</label> <input type="text"
+				class="form-control" name="codigo" [(ngModel)]="local.codigo" required>
+		</div>
+		<div class="form-group">
+			<label for="descricao">Descrição</label> <input type="text"
+				class="form-control" name="descricao" [(ngModel)]="local.descricao"
+				required>
+		</div>
+		<div class="form-group">
+			<label for="empresa">Empresa</label> <input type="text"
+				class="form-control" name="empresa" [(ngModel)]="local.empresa"
+				required>
+		</div>
+		<div class="form-group">
+			<label for="produto">Produto</label> <input type="text"
+				class="form-control" name="produto" [(ngModel)]="local.produto"
+				required>
+		</div>
+		<div class="form-group">
+			<label for="quantidade">Quantidade</label> <input type="text"
+				class="form-control" name="quantidade" [(ngModel)]="local.quantidade"
+				required>
+		</div>
+		<button class="btn btn-success" (click)="addLocal()">Cadastrar</button>
+	</form>
+
+	<ul>
+		<li *ngFor="let local of locais">{{local.codigo}} -
+			{{local.descricao}} - {{local.empresa}} - {{local.produto}} - 
+			{{local.quantidade}}</li>
+	</ul>
+</div>
+
+
+
+
+
+
+
+
+
