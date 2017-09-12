@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HttpProdutoComponent } from './Produto/http_produto.component';
+import { HttpLocalComponent } from './Local/http_local.component';
+import { HttpUsuarioComponent } from './Usuario/http_usuario.component';
 
 
 
@@ -14,6 +16,8 @@ import { HttpProdutoComponent } from './Produto/http_produto.component';
   declarations: [
     AppComponent,
     HttpProdutoComponent
+    HttpLocalComponent,
+    HttpUsuarioComponent
   ],
   imports: [
     BrowserModule,
@@ -24,9 +28,18 @@ import { HttpProdutoComponent } from './Produto/http_produto.component';
     path: 'produto',
     component: HttpProdutoComponent
   }
+
+  {
+    path: 'local',
+    component: HttpLocalComponent
+  },
+      {
+      path: 'usuario',
+      component: HttpUsuarioComponent
+      }
 ])
   ],
-  providers: [HttpProdutoComponent],
+  providers: [HttpLocalComponent, HttpUsuarioComponent,HttpProdutoComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
