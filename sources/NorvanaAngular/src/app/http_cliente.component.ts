@@ -20,7 +20,7 @@ export class HttpCliente {
     this.httpClienteS.getClientes().subscribe(
       clientes => this.clientes = clientes,
       error => alert(error),
-      () => console.log("terminou")
+      () => console.log('terminou')
     );
   }
 

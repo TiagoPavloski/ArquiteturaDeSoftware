@@ -6,14 +6,14 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HttpCliente } from './http_cliente.component';
+import { HttpProdutoComponent } from './Produto/http_produto.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HttpCliente
+    HttpProdutoComponent
   ],
   imports: [
     BrowserModule,
@@ -21,12 +21,12 @@ import { HttpCliente } from './http_cliente.component';
     HttpModule,
     RouterModule.forRoot([
   {
-    path: 'cliente',
-    component: HttpCliente
+    path: 'produto',
+    component: HttpProdutoComponent
   }
 ])
   ],
-  providers: [HttpCliente],
+  providers: [HttpProdutoComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

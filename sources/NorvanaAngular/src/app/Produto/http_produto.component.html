@@ -1,0 +1,36 @@
+<div class="container">
+	<h1>Cadastro de Produtos</h1>
+	<form>
+		<div class="form-group">
+			<label for="nome">Codigo</label> <input type="text"
+				class="form-control" name="nome" [(ngModel)]="produto.codigo" required>
+		</div>
+		<div class="form-group">
+			<label for="idade">Descricao</label> <input type="text"
+				class="form-control" name="idade" [(ngModel)]="produto.descricao"
+				required>
+		</div>
+		<button class="btn btn-success" (click)="addProduto()">Cadastrar</button>
+	</form>
+
+<table>
+		<tr>
+			<th>Codigo</th>
+			<th>Descricao</th>
+		</tr>
+		<tr *ngFor="let produto of produtos">
+			<td>{{produto.codigo}}</td>
+			<td>{{produto.descricao}}</td>
+		</tr>
+	</table>
+
+</div>
+
+
+
+
+
+
+
+
+
