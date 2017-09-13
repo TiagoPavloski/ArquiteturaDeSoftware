@@ -11,7 +11,7 @@ export class HttpProdutoService {
   constructor(private _http: Http) { }
 
   getProdutos(): Observable<Produto[]> {
-    return this._http.get('http://localhost:8080/Norvana/rest/produtorest').
+    return this._http.get('http://norvana.jelasticlw.com.br/Norvana/rest/produtorest').
       map(this.extractData);
   }
 
@@ -23,7 +23,7 @@ export class HttpProdutoService {
     const json = JSON.stringify(produto);
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
-    return this._http.post('http://localhost:8080/Norvana/rest/produtorest',
+    return this._http.post('http://norvana.jelasticlw.com.br/Norvana/rest/produtorest',
       json, options).map(res => res.json());
   }
 }

@@ -15,7 +15,7 @@ import { HttpUsuarioComponent } from './Usuario/http_usuario.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HttpProdutoComponent
+    HttpProdutoComponent,
     HttpLocalComponent,
     HttpUsuarioComponent
   ],
@@ -27,7 +27,7 @@ import { HttpUsuarioComponent } from './Usuario/http_usuario.component';
   {
     path: 'produto',
     component: HttpProdutoComponent
-  }
+  },
 
   {
     path: 'local',
@@ -39,7 +39,7 @@ import { HttpUsuarioComponent } from './Usuario/http_usuario.component';
       }
 ])
   ],
-  providers: [HttpLocalComponent, HttpUsuarioComponent,HttpProdutoComponent],
+  providers: [HttpLocalComponent, HttpUsuarioComponent, HttpProdutoComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
