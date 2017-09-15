@@ -66,6 +66,15 @@ public class Facade {
 		return new LocalDao().listar();	
 	}
 	
+	public void excluir(Long id) throws BusinessException{
+		
+		new ProdutoDao().excluir(id);	
+		
+		//BusinessProduto produtoBusiness = new BusinessProduto();
+		
+		//produtoBusiness.excluir(p);
+	}
+	
 }
 
 

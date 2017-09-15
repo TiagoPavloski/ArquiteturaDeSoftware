@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import br.edu.norvana.entity.Local;
+import br.edu.norvana.entity.Produto;
 
 public class LocalDao implements InterfaceDao<Local> {
 	
@@ -30,5 +31,14 @@ public class LocalDao implements InterfaceDao<Local> {
 		
 		return locais;
 	}	
+	
+	public void excluir(Long id) {
+		EntityManager em = Conexao.getInstance().createEntityManager();
+		
+		em.getTransaction().begin();
+		//em.remove(l); 
+		em.getTransaction().commit();
+		em.close();		
+	}
 
 }

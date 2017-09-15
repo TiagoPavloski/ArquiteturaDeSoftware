@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import br.edu.norvana.entity.Produto;
 import br.edu.norvana.entity.Usuario;
 
 public class UsuarioDao implements InterfaceDao<Usuario> {
@@ -29,6 +30,15 @@ public class UsuarioDao implements InterfaceDao<Usuario> {
 		em.close();
 		
 		return usuarios;
+	}
+	
+	public void excluir(Long id) {
+		EntityManager em = Conexao.getInstance().createEntityManager();
+		
+		em.getTransaction().begin();
+		//em.remove(u); 
+		em.getTransaction().commit();
+		em.close();		
 	}
 
 }

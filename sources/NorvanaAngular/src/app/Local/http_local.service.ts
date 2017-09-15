@@ -11,7 +11,7 @@ export class HttpLocalService {
   constructor(private _http: Http) { }
 
   getLocais(): Observable<Local[]> {
-    return this._http.get('http://localhost:9090/Norvana/rest/localrest').
+    return this._http.get('http://norvana.jelasticlw.com.br/Norvana/rest/localrest').
       map(this.extractData);
   }
 
@@ -23,7 +23,7 @@ export class HttpLocalService {
     const json = JSON.stringify(local);
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
-    return this._http.post('http://localhost:9090/Norvana/rest/localrest',
+    return this._http.post('http://norvana.jelasticlw.com.br/Norvana/rest/localrest',
       json, options).map(res => res.json());
   }
 }

@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import br.edu.norvana.entity.Movimentacao;
+import br.edu.norvana.entity.Produto;
 
 public class MovimentacaoDao implements InterfaceDao<Movimentacao> {
 
@@ -30,6 +31,15 @@ public class MovimentacaoDao implements InterfaceDao<Movimentacao> {
 		em.getTransaction().commit();
 		
 		return movimentacoes;
+	}
+	
+	public void excluir(Long id) {
+		EntityManager em = Conexao.getInstance().createEntityManager();
+		
+		em.getTransaction().begin();
+		//em.remove(m); 
+		em.getTransaction().commit();
+		em.close();		
 	}
 
 }

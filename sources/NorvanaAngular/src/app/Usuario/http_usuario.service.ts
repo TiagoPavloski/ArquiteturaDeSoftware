@@ -11,7 +11,7 @@ export class HttpUsuarioService {
   constructor(private _http: Http) { }
 
   getUsuarios(): Observable<Usuario[]> {
-    return this._http.get('http://localhost:9090/Norvana/rest/usuariorest').
+    return this._http.get('http://norvana.jelasticlw.com.br/Norvana/rest/usuariorest').
       map(this.extractData);
   }
 
@@ -23,7 +23,7 @@ export class HttpUsuarioService {
     const json = JSON.stringify(usuario);
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
-    return this._http.post('http://localhost:9090/Norvana/rest/usuariorest',
+    return this._http.post('http://norvana.jelasticlw.com.br/Norvana/rest/usuariorest',
       json, options).map(res => res.json());
   }
 }

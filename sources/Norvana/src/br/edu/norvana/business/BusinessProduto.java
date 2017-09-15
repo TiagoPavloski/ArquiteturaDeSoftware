@@ -16,5 +16,16 @@ public class BusinessProduto {
 		InterfaceDao<Produto> produtoDao = new ProdutoDao();
 		produtoDao.salvar(p);
 	}
-
+	
+	public void editar (Produto p) throws BusinessException{
+		
+		if (p.getCodigo() == null || p.getCodigo().equals("")){
+			
+			throw new BusinessException("Código do produto inválido");
+		}
+		
+		InterfaceDao<Produto> produtoDao = new ProdutoDao();
+		produtoDao.salvar(p);
+	}
+	
 }

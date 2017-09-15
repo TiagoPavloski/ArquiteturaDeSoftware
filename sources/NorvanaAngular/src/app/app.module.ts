@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HttpProdutoComponent } from './Produto/http_produto.component';
 import { HttpLocalComponent } from './Local/http_local.component';
 import { HttpUsuarioComponent } from './Usuario/http_usuario.component';
+import { HttpEmpresaComponent } from './Empresa/http_empresa.component';
 
 
 
@@ -33,13 +34,20 @@ import { HttpUsuarioComponent } from './Usuario/http_usuario.component';
     path: 'local',
     component: HttpLocalComponent
   },
-      {
-      path: 'usuario',
-      component: HttpUsuarioComponent
-      }
+
+  {
+    path: 'usuario',
+    component: HttpUsuarioComponent
+  },
+
+  {
+    path: 'empresa',
+    component: HttpEmpresaComponent
+  }
+
 ])
   ],
-  providers: [HttpLocalComponent, HttpUsuarioComponent, HttpProdutoComponent],
+  providers: [HttpLocalComponent, HttpUsuarioComponent, HttpProdutoComponent, HttpEmpresaComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

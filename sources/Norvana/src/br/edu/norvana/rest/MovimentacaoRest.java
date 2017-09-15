@@ -14,8 +14,8 @@ import br.edu.norvana.Facade.Facade;
 import br.edu.norvana.business.BusinessException;
 import br.edu.norvana.entity.Produto;
 
-@Path("/produtorest")
-public class ProdutoRest {
+@Path("/movimentacaorest")
+public class MovimentacaoRest {
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -36,32 +36,6 @@ public class ProdutoRest {
 	public ArrayList<Produto> listarProduto(){
 		return (ArrayList<Produto>) new Facade().listarProduto();
 		
-				
-	}
-	
-	@GET
-	@Consumes(MediaType.APPLICATION_JSON)
-	public void excluirProduto(Long id){
-		Facade facade = new Facade();
-		
-		try {
-			facade.excluir(id);
-		} catch (BusinessException e) {
-			e.printStackTrace();
-		}	
-				
-	}
-	
-	@GET
-	@Consumes(MediaType.APPLICATION_JSON)
-	public void editarProduto(Produto produto){
-		Facade facade = new Facade();
-		
-		try {
-			facade.salvar(produto);
-		} catch (BusinessException e) {
-			e.printStackTrace();
-		}	
 				
 	}
 

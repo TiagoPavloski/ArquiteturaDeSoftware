@@ -2,25 +2,32 @@
 	<h1>Cadastro de Produtos</h1>
 	<form>
 		<div class="form-group">
-			<label for="nome">Codigo</label> <input type="text"
-				class="form-control" name="nome" [(ngModel)]="produto.codigo" required>
+			<label for="nome">Nome</label> <input type="text"
+				class="form-control" name="nome" [(ngModel)]="empresa.nome" required>
 		</div>
 		<div class="form-group">
-			<label for="idade">Descricao</label> <input type="text"
-				class="form-control" name="idade" [(ngModel)]="produto.descricao"
+			<label for="cnpj">Cnpj</label> <input type="text"
+				class="form-control" name="cnpj" [(ngModel)]="empresa.cnpj"
 				required>
 		</div>
-		<button class="btn btn-success" (click)="addProduto()">Cadastrar</button>
+		<div class="form-group">
+			<label for="razaosocial">Razão Social</label> <input type="text"
+				class="form-control" name="razaosocial" [(ngModel)]="empresa.razaosocial"
+				required>
+		</div>
+		<button class="btn btn-success" (click)="addEmpresa()">Cadastrar</button>
 	</form>
 
 <table>
 		<tr>
-			<th>Codigo</th>
-			<th>Descricao</th>
+			<th>Nome</th>
+			<th>CNPJ</th>
+			<th>Razão Social</th>
 		</tr>
-		<tr *ngFor="let produto of produtos">
-			<td>{{produto.codigo}}</td>
-			<td>{{produto.descricao}}</td>
+		<tr *ngFor="let empresa of empresas">
+			<td>{{empresa.nome}}</td>
+			<td>{{empresa.cnpj}}</td>
+			<td>{{empresa.razaosocial}}</td>
 		</tr>
 	</table>
 

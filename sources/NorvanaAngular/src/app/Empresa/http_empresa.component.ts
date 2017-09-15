@@ -7,7 +7,7 @@ import { Empresa } from './empresa.component'
   templateUrl: './http_empresa.component.html',
   providers: [HttpEmpresaService]
 })
-export class HttpProdutoComponent {
+export class HttpEmpresaComponent {
   empresas: Empresa[];
   empresa: Empresa;
 

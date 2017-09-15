@@ -5,6 +5,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import org.hamcrest.core.IsNull;
+
+import br.edu.norvana.business.BusinessException;
 import br.edu.norvana.entity.Produto;
 
 public class ProdutoDao  implements InterfaceDao<Produto>  {
@@ -13,12 +16,16 @@ public class ProdutoDao  implements InterfaceDao<Produto>  {
 		EntityManager em = Conexao.getInstance().createEntityManager();
 		
 		em.getTransaction().begin();
-		em.persist(p);
+		
+		if (p.getId() != null) 
+			em.merge(p);
+		else
+			em.persist(p);
+		
+		
 		em.getTransaction().commit();
-		
 		em.close();
-		
-		
+			
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -32,6 +39,16 @@ public class ProdutoDao  implements InterfaceDao<Produto>  {
 		em.close();
 		
 		return produtos;
+	}
+	
+	public void excluir(Long id) {
+		EntityManager em = Conexao.getInstance().createEntityManager();
+		
+		Produto produto = (Produto) em.find(Produto.class,id);
+		em.getTransaction().begin();
+		em.remove(produto); 
+		em.getTransaction().commit();
+		em.close();		
 	}
 
 }

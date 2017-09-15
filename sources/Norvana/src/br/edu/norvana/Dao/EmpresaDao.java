@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import br.edu.norvana.entity.Empresa;
+import br.edu.norvana.entity.Produto;
 
 public class EmpresaDao implements InterfaceDao<Empresa> {
 
@@ -30,5 +31,15 @@ public class EmpresaDao implements InterfaceDao<Empresa> {
 		
 		return empresas;
 	}
+	
+	public void excluir(Long id) {
+		EntityManager em = Conexao.getInstance().createEntityManager();
+		
+		em.getTransaction().begin();
+		//em.remove(e); 
+		em.getTransaction().commit();
+		em.close();		
+	}
+	
 
 }

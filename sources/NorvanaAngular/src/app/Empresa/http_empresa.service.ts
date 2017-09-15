@@ -11,7 +11,7 @@ export class HttpEmpresaService {
   constructor(private _http: Http) { }
 
   getEmpresas(): Observable<Empresa[]> {
-    return this._http.get('http://localhost:8080/Norvana/rest/empresarest').
+    return this._http.get('http://norvana.jelasticlw.com.br//Norvana/rest/empresarest').
       map(this.extractData);
   }
 
@@ -23,7 +23,7 @@ export class HttpEmpresaService {
     const json = JSON.stringify(empresa);
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
-    return this._http.post('http://localhost:8080/Norvana/rest/empresarest',
+    return this._http.post('http://norvana.jelasticlw.com.br/Norvana/rest/empresarest',
       json, options).map(res => res.json());
   }
 }
