@@ -11,7 +11,7 @@ export class HttpEmpresaService {
   constructor(private _http: Http) { }
 
   getEmpresas(): Observable<Empresa[]> {
-    return this._http.get('http://norvana.jelasticlw.com.br//Norvana/rest/empresarest').
+    return this._http.get('http://norvana.jelasticlw.com.br/Norvana/rest/empresarest').
       map(this.extractData);
   }
 

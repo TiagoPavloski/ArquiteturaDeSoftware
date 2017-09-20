@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import br.edu.norvana.entity.Empresa;
-import br.edu.norvana.entity.Produto;
+
 
 public class EmpresaDao implements InterfaceDao<Empresa> {
 

@@ -10,7 +10,7 @@ import br.edu.norvana.business.BusinessException;
 import br.edu.norvana.entity.Produto;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class TestarProduto {
+public class ProdutoTest {
 	
 	public List<Produto> produtos;
 	Facade facade = new Facade();

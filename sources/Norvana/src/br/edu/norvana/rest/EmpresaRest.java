@@ -5,8 +5,8 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-
 import br.edu.norvana.Facade.Facade;
 import br.edu.norvana.business.BusinessException;
 import br.edu.norvana.entity.Empresa;
@@ -33,6 +33,20 @@ public class EmpresaRest {
 	public ArrayList<Empresa> listarempresa() {
 		return (ArrayList<Empresa>) new Facade().listarEmpresa();
 
+	}
+
+	
+	@Path("/excluir")
+	@POST
+	public void excluirEmpresa(@QueryParam("id") Long id){
+		Facade facade = new Facade();
+		
+		try {
+			facade.excluir(id);
+		} catch (BusinessException e) {
+			e.printStackTrace();
+		}	
+				
 	}
 
 }

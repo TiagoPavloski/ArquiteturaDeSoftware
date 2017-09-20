@@ -4,9 +4,8 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-
 import br.edu.norvana.entity.Local;
-import br.edu.norvana.entity.Produto;
+
 
 public class LocalDao implements InterfaceDao<Local> {
 	

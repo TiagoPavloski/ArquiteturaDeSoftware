@@ -4,15 +4,18 @@ import java.util.List;
 
 import br.edu.norvana.Dao.EmpresaDao;
 import br.edu.norvana.Dao.LocalDao;
+import br.edu.norvana.Dao.MovimentacaoDao;
 import br.edu.norvana.Dao.ProdutoDao;
 import br.edu.norvana.Dao.UsuarioDao;
 import br.edu.norvana.business.BusinessEmpresa;
 import br.edu.norvana.business.BusinessException;
 import br.edu.norvana.business.BusinessLocal;
+import br.edu.norvana.business.BusinessMovimentacao;
 import br.edu.norvana.business.BusinessProduto;
 import br.edu.norvana.business.BusinessUsuario;
 import br.edu.norvana.entity.Empresa;
 import br.edu.norvana.entity.Local;
+import br.edu.norvana.entity.Movimentacao;
 import br.edu.norvana.entity.Produto;
 import br.edu.norvana.entity.Usuario;
 
@@ -46,6 +49,13 @@ public class Facade {
 		localBusiness.salvar(l);
 	}
 	
+	public void salvar(Movimentacao m) throws BusinessException{
+		
+		BusinessMovimentacao movimentacaoBusiness = new BusinessMovimentacao();
+		
+		movimentacaoBusiness.salvar(m);
+	}
+	
 	public List<Produto> listarProduto(){
 		
 		return new ProdutoDao().listar();	
@@ -64,6 +74,11 @@ public class Facade {
 	public List<Local> listarLocal(){
 		
 		return new LocalDao().listar();	
+	}
+	
+	public List<Movimentacao> listarMovimentacao(){
+		
+		return new MovimentacaoDao().listar();	
 	}
 	
 	public void excluir(Long id) throws BusinessException{

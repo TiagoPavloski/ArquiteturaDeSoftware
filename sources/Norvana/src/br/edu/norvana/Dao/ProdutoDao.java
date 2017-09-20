@@ -4,10 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-
-import org.hamcrest.core.IsNull;
-
-import br.edu.norvana.business.BusinessException;
 import br.edu.norvana.entity.Produto;
 
 public class ProdutoDao  implements InterfaceDao<Produto>  {

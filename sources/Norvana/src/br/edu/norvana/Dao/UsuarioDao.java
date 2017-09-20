@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-
-import br.edu.norvana.entity.Produto;
 import br.edu.norvana.entity.Usuario;
 
 public class UsuarioDao implements InterfaceDao<Usuario> {
