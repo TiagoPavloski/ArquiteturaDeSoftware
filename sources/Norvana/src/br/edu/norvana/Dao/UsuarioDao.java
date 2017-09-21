@@ -12,6 +12,15 @@ public class UsuarioDao implements InterfaceDao<Usuario> {
 		EntityManager em = Conexao.getInstance().createEntityManager();
 		
 		em.getTransaction().begin();
+		
+
+		if (u.getId() != null) 
+			em.merge(u);
+		else
+			em.persist(u);
+		
+		
+		
 		em.persist(u);
 		em.getTransaction().commit();
 		
