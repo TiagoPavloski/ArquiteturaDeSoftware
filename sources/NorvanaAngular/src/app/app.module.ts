@@ -18,8 +18,7 @@ import { HttpEmpresaComponent } from './Empresa/http_empresa.component';
     AppComponent,
     HttpProdutoComponent,
     HttpLocalComponent,
-    HttpUsuarioComponent,
-    HttpEmpresaComponent
+    HttpUsuarioComponent
   ],
   imports: [
     BrowserModule,
