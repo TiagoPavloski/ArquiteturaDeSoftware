@@ -26,4 +26,12 @@ export class HttpEmpresaService {
     return this._http.post('http://norvana.jelasticlw.com.br/Norvana/rest/empresarest',
       json, options).map(res => res.json());
   }
+
+  excluirEmpresa(id: number): Observable<string> {
+    const json = JSON.stringify(id);
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
+    return this._http.post('http://norvana.jelasticlw.com.br/Norvana/rest/empresarest/excluir?id=' + id,
+      json, options).map(res => res.json());
+  }
 }

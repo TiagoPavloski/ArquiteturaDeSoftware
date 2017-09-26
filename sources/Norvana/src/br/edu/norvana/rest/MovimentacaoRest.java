@@ -43,7 +43,7 @@ public class MovimentacaoRest {
 		Facade facade = new Facade();
 		
 		try {
-			facade.excluir(id);
+			facade.excluirMovimentacao(id);
 		} catch (BusinessException e) {
 			e.printStackTrace();
 		}	

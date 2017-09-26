@@ -45,7 +45,7 @@ public class LocalRest {
 		Facade facade = new Facade();
 		
 		try {
-			facade.excluir(id);
+			facade.excluirLocal(id);
 		} catch (BusinessException e) {
 			e.printStackTrace();
 		}	

@@ -43,7 +43,7 @@ public class UsuarioRest {
 		Facade facade = new Facade();
 		
 		try {
-			facade.excluir(id);
+			facade.excluirUsuario(id);
 		} catch (BusinessException e) {
 			e.printStackTrace();
 		}	

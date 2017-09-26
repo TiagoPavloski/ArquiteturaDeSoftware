@@ -7,15 +7,23 @@ import javax.persistence.Query;
 import br.edu.norvana.entity.Movimentacao;
 
 
+
 public class MovimentacaoDao implements InterfaceDao<Movimentacao> {
 
 	@Override
 	public void salvar(Movimentacao m) {
 		EntityManager em = Conexao.getInstance().createEntityManager();;
 		
-		em.getTransaction().begin();
-		em.persist(m);
+	em.getTransaction().begin();
+		
+		if (m.getId() != null) 
+			em.merge(m);
+		else
+			em.persist(m);
+		
+		
 		em.getTransaction().commit();
+		em.close();
 		
 	}
 
@@ -35,10 +43,11 @@ public class MovimentacaoDao implements InterfaceDao<Movimentacao> {
 	public void excluir(Long id) {
 		EntityManager em = Conexao.getInstance().createEntityManager();
 		
+		Movimentacao movimentacao = (Movimentacao) em.find(Movimentacao.class,id);
 		em.getTransaction().begin();
-		//em.remove(m); 
+		em.remove(movimentacao); 
 		em.getTransaction().commit();
-		em.close();		
+		em.close();			
 	}
 
 }

@@ -28,11 +28,11 @@ public class Facade {
 		produtoBusiness.salvar(p);
 	}
 	
-	public void salvar(Empresa e) throws BusinessException{
+	public void salvar(Empresa w) throws BusinessException{
 		
 		BusinessEmpresa empresaBusiness = new BusinessEmpresa();
 		
-		empresaBusiness.salvar(e);
+		empresaBusiness.salvar(w);
 	}
 	
 	public void salvar(Usuario u) throws BusinessException{
@@ -81,13 +81,26 @@ public class Facade {
 		return new MovimentacaoDao().listar();	
 	}
 	
-	public void excluir(Long id) throws BusinessException{
+	public void excluirProduto(Long id) throws BusinessException{
 		
-		new ProdutoDao().excluir(id);	
-		
-		//BusinessProduto produtoBusiness = new BusinessProduto();
-		
-		//produtoBusiness.excluir(p);
+		new ProdutoDao().excluir(id);
+	}
+	
+	public void excluirLocal(Long id) throws BusinessException{
+		new LocalDao().excluir(id);	
+				
+	}
+	public void excluirEmpresa(Long id) throws BusinessException{
+		new EmpresaDao().excluir(id);	
+				
+	}
+	public void excluirMovimentacao(Long id) throws BusinessException{
+		new MovimentacaoDao().excluir(id);	
+				
+	}
+	public void excluirUsuario(Long id) throws BusinessException{
+		new UsuarioDao().excluir(id);	
+				
 	}
 	
 }

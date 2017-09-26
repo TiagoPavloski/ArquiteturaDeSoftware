@@ -1,5 +1,5 @@
 <div class="container">
-	<h1>Cadastro de Produtos</h1>
+	<h1>Cadastro de Empresas</h1>
 	<form>
 		<div class="form-group">
 			<label for="nome">Nome</label> <input type="text"
@@ -11,8 +11,8 @@
 				required>
 		</div>
 		<div class="form-group">
-			<label for="razaosocial">Razão Social</label> <input type="text"
-				class="form-control" name="razaosocial" [(ngModel)]="empresa.razaosocial"
+			<label for="razaoSocial">Razao Social</label> <input type="text"
+				class="form-control" name="razaoSocial" [(ngModel)]="empresa.razaoSocial"
 				required>
 		</div>
 		<button class="btn btn-success" (click)="addEmpresa()">Cadastrar</button>
@@ -22,12 +22,15 @@
 		<tr>
 			<th>Nome</th>
 			<th>CNPJ</th>
-			<th>Razão Social</th>
+			<th>Razao Social</th>
 		</tr>
 		<tr *ngFor="let empresa of empresas">
 			<td>{{empresa.nome}}</td>
 			<td>{{empresa.cnpj}}</td>
-			<td>{{empresa.razaosocial}}</td>
+			<td>{{empresa.razaoSocial}}</td>
+			<td><button class="btn btn-success" (click)="excluirEmpresa(empresa.id)">Excluir</button></td>
+			<td><button class="btn btn-success" (click)="editarEmpresa(empresa)">Editar</button></td>
+			
 		</tr>
 	</table>
 

@@ -30,8 +30,28 @@ export class HttpEmpresaComponent {
       error => alert(error),
       () => this.getEmpresas()
     );
+    this.limparTela();
+  }
+  excluirEmpresa(id: number) {
+    this.httpEmpresaS.excluirEmpresa(id).subscribe(
+      data => data,
+      error => alert(error),
+      () => this.getEmpresas()
+    );
+  }
 
+  limparTela() {
+    this.empresa.id = null;
+    this.empresa.nome = '' ;
+    this.empresa.cnpj = '';
+    this.empresa.razaoSocial = '';
+  }
 
+   editarEmpresa(empresa: Empresa) {
+    this.empresa.id = empresa.id;
+    this.empresa.nome = empresa.nome;
+    this.empresa.cnpj = empresa.cnpj;
+    this.empresa.razaoSocial = empresa.razaoSocial;
   }
 
 

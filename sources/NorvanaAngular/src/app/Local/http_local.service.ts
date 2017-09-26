@@ -26,4 +26,11 @@ export class HttpLocalService {
     return this._http.post('http://norvana.jelasticlw.com.br/Norvana/rest/localrest',
       json, options).map(res => res.json());
   }
+  excluirLocal(id: number): Observable<string> {
+    const json = JSON.stringify(id);
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
+    return this._http.post('http://norvana.jelasticlw.com.br/Norvana/rest/localrest/excluir?id=' + id,
+      json, options).map(res => res.json());
+  }
 }

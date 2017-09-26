@@ -2,11 +2,15 @@ package br.edu.norvana.test;
 
 import java.util.List;
 import org.junit.Assert;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
+
 import br.edu.norvana.Facade.Facade;
 import br.edu.norvana.business.BusinessException;
 import br.edu.norvana.entity.Movimentacao;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MovimentacaoTest {
 	
 	public List<Movimentacao> movimentacoes;
@@ -17,7 +21,7 @@ public class MovimentacaoTest {
 		
 		Movimentacao m = new Movimentacao();
 		m.setId(null);
-		m.setJustificativa("");
+		m.setJustificativa("a");
 				
 		Facade facade = new Facade();
 		
@@ -45,7 +49,7 @@ public class MovimentacaoTest {
 		movimentacoes  = facade.listarMovimentacao();
 		Movimentacao m = movimentacoes.get(0);
 		
-		m.setJustificativa("");
+		m.setJustificativa("q");
 		
 		Facade facade = new Facade();
 		
@@ -55,7 +59,7 @@ public class MovimentacaoTest {
 			e.printStackTrace();
 		}
 		
-		Assert.assertEquals(true,m.getJustificativa().equals(""));
+		Assert.assertEquals(true,m.getJustificativa().equals("q"));
 		
 	}
 	
@@ -68,7 +72,7 @@ public class MovimentacaoTest {
 		Facade facade = new Facade();
 		
 		try {
-			facade.excluir(m.getId());
+			facade.excluirMovimentacao(m.getId());
 		} catch (BusinessException e) {
 			e.printStackTrace();
 		}

@@ -26,4 +26,12 @@ export class HttpProdutoService {
     return this._http.post('http://norvana.jelasticlw.com.br/Norvana/rest/produtorest',
       json, options).map(res => res.json());
   }
+
+  excluirProduto(id: number): Observable<string> {
+    const json = JSON.stringify(id);
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
+    return this._http.post('http://norvana.jelasticlw.com.br/Norvana/rest/produtorest/excluir?id=' + id,
+      json, options).map(res => res.json());
+  }
 }

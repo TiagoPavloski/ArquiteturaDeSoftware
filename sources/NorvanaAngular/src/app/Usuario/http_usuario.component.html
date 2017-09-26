@@ -1,5 +1,5 @@
 <div class="container">
-	<h1>Cadastro de Usuario</h1>
+	<h1>Cadastro de Usuarios</h1>
 	<form>
 		<div class="form-group">
 			<label for="login">Login</label> <input type="text"
@@ -22,13 +22,23 @@
 		</div>
 		<button class="btn btn-success" (click)="addUsuario()">Cadastrar</button>
 	</form>
+	
+	<table>
+		<tr>
+			<th>Nome</th>
+			<th>CNPJ</th>
+			<th>Razão Social</th>
+		</tr>
+		<tr *ngFor="let usuario of usuarios">
+			<td>{{usuario.login}}</td>
+			<td>{{usuario.senha}}</td>
+			<td>{{usuario.nome}}</td>
+			<td><button class="btn btn-success" (click)="excluirUsuario(usuario.id)">Excluir</button></td>
+			<td><button class="btn btn-success" (click)="editarUsuario(usuario)">Editar</button></td>
+			
+		</tr>
+	</table>
 
-	<ul>
-		<li *ngFor="let usuario of usuarios">
-		{{usuario.login}} -
-			{{usuario.senha}} - {{usuario.nome}} - {{usuario.empresa}}  
-		</li>
-	</ul>
 </div>
 
 

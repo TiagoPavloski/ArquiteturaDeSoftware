@@ -7,15 +7,23 @@ import javax.persistence.Query;
 import br.edu.norvana.entity.Empresa;
 
 
+
 public class EmpresaDao implements InterfaceDao<Empresa> {
 
 	@Override
-	public void salvar(Empresa e) {
+	public void salvar(Empresa w) {
 		EntityManager em = Conexao.getInstance().createEntityManager();;
 		
-		em.getTransaction().begin();
-		em.persist(e);
+	em.getTransaction().begin();
+		
+		if (w.getId() != null) 
+			em.merge(w);
+		else
+			em.persist(w);
+		
+		
 		em.getTransaction().commit();
+		em.close();
 		
 	}
 
@@ -35,10 +43,11 @@ public class EmpresaDao implements InterfaceDao<Empresa> {
 	public void excluir(Long id) {
 		EntityManager em = Conexao.getInstance().createEntityManager();
 		
+		Empresa empresa = (Empresa) em.find(Empresa.class,id);
 		em.getTransaction().begin();
-		//em.remove(e); 
+		em.remove(empresa); 
 		em.getTransaction().commit();
-		em.close();		
+		em.close();			
 	}
 	
 

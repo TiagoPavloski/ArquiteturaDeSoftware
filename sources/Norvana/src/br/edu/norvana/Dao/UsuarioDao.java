@@ -11,19 +11,15 @@ public class UsuarioDao implements InterfaceDao<Usuario> {
 	public void salvar(Usuario u) {
 		EntityManager em = Conexao.getInstance().createEntityManager();
 		
-		em.getTransaction().begin();
+	em.getTransaction().begin();
 		
-
 		if (u.getId() != null) 
 			em.merge(u);
 		else
 			em.persist(u);
 		
 		
-		
-		em.persist(u);
 		em.getTransaction().commit();
-		
 		em.close();
 	}
 	@SuppressWarnings("unchecked")
@@ -42,8 +38,9 @@ public class UsuarioDao implements InterfaceDao<Usuario> {
 	public void excluir(Long id) {
 		EntityManager em = Conexao.getInstance().createEntityManager();
 		
+		Usuario usuario = (Usuario) em.find(Usuario.class,id);
 		em.getTransaction().begin();
-		//em.remove(u); 
+		em.remove(usuario); 
 		em.getTransaction().commit();
 		em.close();		
 	}

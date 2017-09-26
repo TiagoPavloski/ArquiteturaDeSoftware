@@ -72,7 +72,7 @@ public class ProdutoTest {
 		Facade facade = new Facade();
 		
 		try {
-			facade.excluir(p.getId());
+			facade.excluirProduto(p.getId());
 		} catch (BusinessException e) {
 			e.printStackTrace();
 		}

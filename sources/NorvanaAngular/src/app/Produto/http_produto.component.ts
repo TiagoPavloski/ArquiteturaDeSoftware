@@ -30,8 +30,27 @@ export class HttpProdutoComponent {
       error => alert(error),
       () => this.getProdutos()
     );
+    this.limparTela();
+  }
 
+    excluirProduto(id: number) {
+    this.httpProdutoS.excluirProduto(id).subscribe(
+      data => data,
+      error => alert(error),
+      () => this.getProdutos()
+    );
+  }
 
+  limparTela() {
+    this.produto.id = null;
+    this.produto.codigo = '' ;
+    this.produto.descricao = '';
+  }
+
+   editarProduto(produto: Produto) {
+    this.produto.id = produto.id;
+    this.produto.codigo = produto.codigo;
+    this.produto.descricao = produto.descricao;
   }
 
 

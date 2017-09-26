@@ -30,9 +30,6 @@ export class HttpUsuarioComponent {
       error => alert(error),
       () => this.getUsuarios()
     );
-
-
   }
-
 
 }

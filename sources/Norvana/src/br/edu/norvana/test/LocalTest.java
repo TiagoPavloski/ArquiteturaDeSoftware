@@ -74,7 +74,7 @@ public class LocalTest {
 		Facade facade = new Facade();
 		
 		try {
-			facade.excluir(l.getId());
+			facade.excluirLocal(l.getId());
 		} catch (BusinessException e) {
 			e.printStackTrace();
 		}

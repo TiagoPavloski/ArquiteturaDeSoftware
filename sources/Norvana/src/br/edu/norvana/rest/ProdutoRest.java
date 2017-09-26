@@ -45,7 +45,7 @@ public class ProdutoRest {
 		Facade facade = new Facade();
 		
 		try {
-			facade.excluir(id);
+			facade.excluirProduto(id);
 		} catch (BusinessException e) {
 			e.printStackTrace();
 		}	

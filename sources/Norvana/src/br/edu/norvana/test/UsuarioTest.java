@@ -74,7 +74,7 @@ public class UsuarioTest {
 		Facade facade = new Facade();
 		
 		try {
-			facade.excluir(u.getId());
+			facade.excluirUsuario(u.getId());
 		} catch (BusinessException e) {
 			e.printStackTrace();
 		}

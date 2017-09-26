@@ -22,6 +22,7 @@ public class EmpresaTest {
 		
 		Empresa w = new Empresa();
 		w.setId(null);
+		w.setNome("Empresa");
 		w.setCnpj("00.000.000/0000-00");
 		w.setRazaoSocial("Empresa teste 01");
 		
@@ -51,7 +52,7 @@ public class EmpresaTest {
 		empresas  = facade.listarEmpresa();
 		Empresa w = empresas.get(0);
 		
-		w.setCnpj("New0001");
+		w.setCnpj("New00.000.000/0000-00");
 		
 		Facade facade = new Facade();
 		
@@ -74,7 +75,7 @@ public class EmpresaTest {
 		Facade facade = new Facade();
 		
 		try {
-			facade.excluir(w.getId());
+			facade.excluirEmpresa(w.getId());
 		} catch (BusinessException e) {
 			e.printStackTrace();
 		}

@@ -7,15 +7,21 @@ import javax.persistence.Query;
 import br.edu.norvana.entity.Local;
 
 
+
 public class LocalDao implements InterfaceDao<Local> {
 	
 	public void salvar(Local l) {
 		EntityManager em = Conexao.getInstance().createEntityManager();
 		
-		em.getTransaction().begin();
-		em.persist(l);
-		em.getTransaction().commit();
+	em.getTransaction().begin();
 		
+		if (l.getId() != null) 
+			em.merge(l);
+		else
+			em.persist(l);
+		
+		
+		em.getTransaction().commit();
 		em.close();
 	}
 	@SuppressWarnings("unchecked")
@@ -34,10 +40,11 @@ public class LocalDao implements InterfaceDao<Local> {
 	public void excluir(Long id) {
 		EntityManager em = Conexao.getInstance().createEntityManager();
 		
+		Local local = (Local) em.find(Local.class,id);
 		em.getTransaction().begin();
-		//em.remove(l); 
+		em.remove(local); 
 		em.getTransaction().commit();
-		em.close();		
+		em.close();			
 	}
 
 }

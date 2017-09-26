@@ -30,9 +30,27 @@ export class HttpLocalComponent {
       error => alert(error),
       () => this.getLocais()
     );
-
-
+    this.limparTela();
   }
 
+  excluirLocal(id: number) {
+    this.httpLocalS.excluirLocal(id).subscribe(
+      data => data,
+      error => alert(error),
+      () => this.getLocais()
+    );
+  }
+
+  limparTela() {
+    this.local.id = null;
+    this.local.codigo = '' ;
+    this.local.descricao = '';
+  }
+
+   editarLocal(local: Local) {
+    this.local.id = local.id;
+    this.local.codigo = local.codigo;
+    this.local.descricao = local.descricao;
+  }
 
 }

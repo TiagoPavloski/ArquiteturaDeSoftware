@@ -21,6 +21,9 @@
 		<tr *ngFor="let produto of produtos">
 			<td>{{produto.codigo}}</td>
 			<td>{{produto.descricao}}</td>
+			<td><button class="btn btn-success" (click)="excluirProduto(produto.id)">Excluir</button></td>
+			<td><button class="btn btn-success" (click)="editarProduto(produto)">Editar</button></td>
+			
 		</tr>
 	</table>
 
