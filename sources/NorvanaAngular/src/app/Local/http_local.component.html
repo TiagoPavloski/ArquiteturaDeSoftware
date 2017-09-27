@@ -10,21 +10,32 @@
 				class="form-control" name="descricao" [(ngModel)]="local.descricao"
 				required>
 		</div>
+		<div class="form-group">
+			<label for="quantidade">Quantidade</label> <input type="text"
+				class="form-control" name="quantidade" [(ngModel)]="local.quantidade"
+				required>
+		</div>
 		<button class="btn btn-success" (click)="addLocal()">Cadastrar</button>
 	</form>
 
-	<table>
+	<table class="table table-hover">
+    <thead>
 		<tr>
 			<th>Codigo</th>
 			<th>Descricao</th>
+			<th>Quantidade</th>
 		</tr>
+	</thead>
+    <tbody>
 		<tr *ngFor="let local of locais">
 			<td>{{local.codigo}}</td>
 			<td>{{local.descricao}}</td>
+			<td>{{local.quantidade}}</td>
 			<td><button class="btn btn-success" (click)="excluirLocal(local.id)">Excluir</button></td>
 			<td><button class="btn btn-success" (click)="editarLocal(local)">Editar</button></td>
 			
 		</tr>
+		</tbody>
 	</table>
 </div>
 

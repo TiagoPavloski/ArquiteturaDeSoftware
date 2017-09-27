@@ -18,12 +18,15 @@
 		<button class="btn btn-success" (click)="addEmpresa()">Cadastrar</button>
 	</form>
 
-<table>
+<table class="table table-hover">
+	<thead>
 		<tr>
 			<th>Nome</th>
 			<th>CNPJ</th>
 			<th>Razao Social</th>
 		</tr>
+	  </thead>
+    <tbody>
 		<tr *ngFor="let empresa of empresas">
 			<td>{{empresa.nome}}</td>
 			<td>{{empresa.cnpj}}</td>
@@ -32,6 +35,7 @@
 			<td><button class="btn btn-success" (click)="editarEmpresa(empresa)">Editar</button></td>
 			
 		</tr>
+		</tbody>
 	</table>
 
 </div>
